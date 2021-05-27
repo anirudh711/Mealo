@@ -23,7 +23,7 @@ export default function App() {
       />
     );
   }
-  return <MealsNavigator />;
+  return fontLoaded && <MealsNavigator />;
 }
 
 const styles = StyleSheet.create({
