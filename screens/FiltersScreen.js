@@ -1,5 +1,6 @@
 import React from 'react'
-import {View,Text,StyleSheet} from 'react-native'
+import {View,Text,StyleSheet} from 'react-native';
+import COLORS from '../constants/colors'
 export const FiltersScreen = () => {
     return (
         <View style={styles.screen}>
