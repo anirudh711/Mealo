@@ -5,7 +5,7 @@ import * as Font from "expo-font";
 import AppLoading from 'expo-app-loading';
 import {enableScreens} from 'react-native-screens'
 import MealsNavigator from "./navigation/MealsNavigator";
-enableScreens(); //using this to increase performance, uses native screens like fragment in android 
+// enableScreens(); //using this to increase performance, uses native screens like fragment in android 
 const fetchFonts = () => {
   Font.loadAsync({
     "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
@@ -23,7 +23,7 @@ export default function App() {
       />
     );
   }
-  return fontLoaded && <MealsNavigator />;
+  return <MealsNavigator />;
 }
 
 const styles = StyleSheet.create({
