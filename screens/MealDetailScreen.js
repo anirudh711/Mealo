@@ -4,7 +4,7 @@ import {HeaderButtons,Item} from 'react-navigation-header-buttons';
 import {MEALS} from '../data/dummy-data';
 import HeaderButton from '../components/HeaderButton'
 const MealDetailScreen = (props) => {
-    const mealId = props.navigation.getParam('mealId')
+    const mealId = props.navigation.getParam('mealId') //coming from categoryMeals navigator
     const selectedMeal =MEALS.find(meal=>meal.id===mealId)
     return (
         <View style={styles.screen}>
