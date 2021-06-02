@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { View, Text, StyleSheet, Switch } from "react-native";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
+import {useDispatch} from 'react-redux'
 import HeaderButton from "../components/HeaderButton";
 import COLORS from "../constants/colors";
-
+import {setFilters} from "../store/actions/meals"
 const FilterSwitch = (props) => {
   return (
     <View style={styles.filterContainer}>
@@ -23,17 +24,17 @@ const FiltersScreen = (props) => {
   const [isLactoseFree, setIsLactoseFree] = useState(false);
   const [isVegan, setIsVegan] = useState(false);
   const [isVeg, setIsVeg] = useState(false);
-
+const dispatch=useDispatch()
   const saveFilters = useCallback(() => {
     //this recreates the function only if these 4 states change, and caches it.
     const appliedFilters = {
-      gf: isGlutenFree,
-      lf: isGlutenFree,
-      v: isVegan,
-      veg: isVegan,
+      glutenFree: isGlutenFree,
+      lactoseFree: isGlutenFree,
+      vegetarian: isVegan,
+      vegan: isVegan,
     };
-    console.log(appliedFilters);
-  }, [isGlutenFree, isGlutenFree, isVegan, isVeg]);
+    dispatch(setFilters(appliedFilters))
+  }, [isGlutenFree, isGlutenFree, isVegan, isVeg,dispatch]);
   useEffect(() => {
     navigation.setParams({ save: saveFilters }); //to update the params currently loaded in this screen so that the header right can access this
   }, [saveFilters]);
